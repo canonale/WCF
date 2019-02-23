@@ -18,7 +18,6 @@
   "author": "Vicenc Garcia Altes",
   "license": "MIT",
   "devDependencies": {
-    "aws-sdk": "^2.409.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
@@ -33,6 +32,8 @@
     "superagent-promise": "^1.1.0"
   },
   "dependencies": {
+    "aws-sdk": "^2.409.0",
+    "chance": "^1.0.18",
     "serverless-iam-roles-per-function": "^1.0.4",
     "serverless-pseudo-parameters": "^2.4.0"
   }
