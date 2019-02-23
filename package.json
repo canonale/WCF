@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest --coverage --config=unitTestsJestConfig.json",
     "lint": "eslint \"./**/*.js\" --fix",
-    "test:acceptance": "jest ./test/acceptance/**/*.js",
+    "test:acceptance": "TEST_MODE=http TEST_BASE_URL='https://l1zfbj4nq6.execute-api.eu-west-1.amazonaws.com/devmanolete/api' jest ./tests/*",
+    "test:integration": "TEST_MODE=handler ./node_modules/.bin/jest ./tests/*",
+    "seedMasters": "node seedMasters.js masters-devmanolete",
     "pretest": "npm run lint",
     "posttest": "npm audit",
     "deploy": "serverless deploy --aws-profile serverless-local"
@@ -14,6 +16,7 @@
   "author": "Vicenc Garcia Altes",
   "license": "MIT",
   "devDependencies": {
+    "aws-sdk": "^2.409.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
@@ -23,6 +26,12 @@
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "prettier": "^1.14.3",
-    "serverless": "^1.35.1"
+    "serverless": "^1.35.1",
+    "superagent": "^4.1.0",
+    "superagent-promise": "^1.1.0"
+  },
+  "dependencies": {
+    "serverless-iam-roles-per-function": "^1.0.4",
+    "serverless-pseudo-parameters": "^2.4.0"
   }
 }
